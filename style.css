@@ -1,0 +1,149 @@
+html{
+    background-image: linear-gradient(to right, #92c7cf, #80c7d2, #6bc7d6, #51c6da, #27c6de);
+}
+#panel{
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 25%;
+    margin-bottom: 25%;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50px;
+    border: 10px soild white;
+    text-align: center;
+    padding: 40px 35px;
+    color: white;
+}
+
+#heading{
+    text-align: center;
+    color: white;
+    font-size: 50px;
+    font-family: 'Bad Script', cursive;
+}
+
+table, th, td{
+    border: 5px solid rgba(255,255,255,0.2);
+    color: rgb(51, 48, 110);
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 10%;
+    font-size: 30px;
+    text-align: center;
+    border-radius: 50px;
+    font-family: 'Montserrat', sans-serif;
+   
+
+}
+h1{
+    text-align: center;
+    text-transform: capitalize;
+    color: white;
+    font-size: 80px;
+    
+}
+
+#projectHeading{
+    text-align: center;
+    font-size: 40px;
+    color: white;
+}
+
+#header{
+    width: 100%;
+    background-color: rgb(93, 89, 181);
+    border-radius: 50px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.searchFeild{
+    border: 0;
+    outline: 0;
+    color: #555;
+    border-radius: 50px;
+    width: 100%;
+    background-color:rgba(255,255,255,0.2);
+    text-align: center;
+    border-color: rgba(255,255,255,255);
+    padding: 10px 25px;
+    height: 60px;
+    font-size: 25px;
+    margin: 10px;
+    background-color: white;
+}
+
+.InputPlusButton{
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.search{
+    border: 0;
+    outline: 0;
+    border-radius: 50%;
+    background-color:rgba(255,255,255,0.2);
+    border-color: rgba(255,255,255,255);
+    width:60px;
+    height: 60px;
+    cursor: pointer;
+    background-color: white;
+}
+.search img {
+    width:16px;
+}
+
+.weather-icon{
+    width: 250px;
+    margin-top: 30px;
+}
+
+.weather h1{
+    font-size: 80px;
+    font-weight: 500;
+}
+
+.weather h2{
+    font-size: 45px;
+    font-weight: 400;
+    margin-top: -10px;
+}
+
+.details{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.col{
+    display: flex;
+    align-items: center;
+    text-align: left;
+    margin-left: 35px;
+}
+
+.col img{
+    width: 60px;
+    margin-right: 10px;
+}
+
+.humidity, .wind{
+    font-size: 35px;
+    margin-top: 7px;
+    margin-right: 50px ;
+    max-width: 100% ;
+    margin-bottom: -10px;
+    
+}
+
+.weather{
+    display: none;
+}
+.error{
+text-align: left;
+margin-left: 10px;
+font-size: 30px;
+margin-top: 10px;
+color: red;
+display: none;
+}

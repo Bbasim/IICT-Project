@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Conditions</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div>
+        <div id="header">       
+             <h1>bahria university karachi</h1>
+            <p id="projectHeading">IICT PROJECT</p>
+        </div>
+
+        <table>
+        <tr>
+            <th>NAME</th>
+            <th>ENROLLMENT #</th>
+        </tr>
+        <tr>
+            <td>Basim Khurram Gul</td>
+            <td>02-134232-052</td>
+        <tr>
+             <td>Rahul Rai</td>
+             <td>02-134232-035</td>
+        </tr>
+            <td>Ahmed Ibrahim</td>
+            <td>02-134232-102</td>
+
+        </tr> 
+        </table>
+    </div>        
+            
+        
+<div id="panel">
+    <h2 id="heading">Current Weather Report</h1>
+    
+     <div class="InputPlusButton">
+        <input class = "searchFeild" type="text" placeholder="City Name" spellcheck="false">
+        <button class = "search"><img src="images/search.png" alt = "Search Button"></button>
+    </div>
+
+<div class ="error">
+<p>Invalid city name</p>
+</div>
+
+    <div class="weather">
+        <img src="images/rain.png"alt="clear Icon" class="weather-icon">
+        <h1 class="temp">22°C</h1>
+        <h2 class="city">New York</h1>
+   
+
+    <div class="details">
+        <div class="col"> <img src = "images/humidity.png">
+            <div>
+                <p class ="humidity">66%</p>
+                <p>Humidity</p>
+            </div>
+            
+        </div>
+
+        <div class="col"> <img src = "images/wind.png">
+            <div>
+                <p class="wind">23Km/h</p>
+                <p>Wind Speed</p>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<script>
+    const apiKey = "e6b64c14c82f61d28c70efb25e1ad2fe";
+    const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+
+    const searchBox = document.querySelector(".InputPlusButton .searchFeild");
+    const searchBtn = document.querySelector(".InputPlusButton .search");
+    const weatherIcon = document.querySelector(".weather-icon");
+    async function checkWeather(city)
+{
+        const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
+
+if(response.status == 404)
+{
+            document.querySelector(".error").style.display = "block";    
+            document.querySelector(".weather").style.display = "none";
+}
+
+else
+{
+    var data = await response.json();
+    
+    document.querySelector(".city").innerHTML = data.name;
+    document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C";
+    document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
+    document.querySelector(".wind").innerHTML = Math.round(data.wind.speed) + " km/h";
+
+    if(data.weather[0].main == "Clouds")
+    {
+        weatherIcon.src = "images/clouds.png";
+    }
+
+    else if(data.weather[0].main == "Clear")
+    {
+        weatherIcon.src = "images/clear.png";
+    }
+
+    else if(data.weather[0].main == "Rain")
+    {
+        weatherIcon.src = "images/rain.png";
+    }
+
+    else if(data.weather[0].main == "Drizzle")
+    {
+        weatherIcon.src = "images/drizzle.png";
+    }
+
+    else if(data.weather[0].main == "Mist" || data.weather[0].main == "Haze")
+    {
+        weatherIcon.src = "images/mist.png";
+    }
+
+    else if(data.weather[0].main == "Snow")
+    {
+        weatherIcon.src = "images/snow.png";
+    }
+
+    document.querySelector(".weather").style.display = "block";
+    document.querySelector(".error").style.display = "none"; 
+}
+
+       
+}
+
+    searchBtn.addEventListener("click", ()=>
+    {
+         checkWeather(searchBox.value);
+    })
+          
+
+ 
+</script>
+</body>
+</html>
